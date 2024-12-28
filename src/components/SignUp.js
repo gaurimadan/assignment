@@ -1,5 +1,6 @@
 // src/components/LoginPage.js
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SignPage = ({ onSignUp }) => {
   const [username, setUsername] = useState('');
@@ -48,7 +49,7 @@ const SignPage = ({ onSignUp }) => {
         </form>
         <div className="mt-4 text-center space-x-4">
           <a href="#" className="text-red-500 text-sm">Forgot password?</a>
-          <a href="#" className="text-blue-500 text-sm">Sign Up</a>
+          <Link to="/" className="text-blue-500 text-sm">Sign In</Link>
         </div>
       </div>
     </div>
