@@ -1,8 +1,9 @@
 import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3, ClipboardCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
+import Header from './Header';
 
-const Performance = () => {
+const Performance = (onLogout) => {
   const operationData = {
     contactNo: '0123456789',
     department: 'ABC',
@@ -59,6 +60,7 @@ const Performance = () => {
 
       {/* Main Content */}
       <div className="flex-1 bg-white">
+      <Header onLogout={onLogout} />
         <div className="p-4 bg-teal-400 flex justify-end space-x-4">
           {/* Header icons placeholder */}
           <div className="w-6 h-6 bg-white/20 rounded"></div>

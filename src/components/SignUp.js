@@ -1,14 +1,14 @@
 // src/components/LoginPage.js
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-const LoginPage = ({ onLogin }) => {
+const SignPage = ({ onSignUp }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email,setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(username, password);
+    onSignUp(username, password);
   };
 
   return (
@@ -31,21 +31,28 @@ const LoginPage = ({ onLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+             <input
+              type="email"
+              placeholder="email"
+              className="w-full p-2 border border-gray-300 rounded"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <button
               type="submit"
               className="w-full py-2 px-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
             >
-              Sign In
+              Sign Up
             </button>
           </div>
         </form>
         <div className="mt-4 text-center space-x-4">
           <a href="#" className="text-red-500 text-sm">Forgot password?</a>
-          <Link to="/signup" className="text-blue-500 text-sm">Sign Up</Link>
+          <a href="#" className="text-blue-500 text-sm">Sign Up</a>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignPage;

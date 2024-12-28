@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { HomeIcon, PlusCircleIcon, FolderIcon, Star, Search ,BarChart3} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
-const MyTickets = () => {
+const MyTickets = (onLogout) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [entriesCount, setEntriesCount] = useState('10');
 
@@ -104,6 +105,7 @@ const MyTickets = () => {
 
       {/* Main Content */}
       <div className="flex-1 bg-white">
+      <Header onLogout={onLogout} />
         <div className="p-4 bg-teal-400 flex justify-end space-x-4">
           {/* Header icons placeholder */}
           <div className="w-6 h-6 bg-white/20 rounded"></div>

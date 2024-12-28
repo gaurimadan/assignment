@@ -1,7 +1,10 @@
 // src/components/NewTicket.js
 import { useState } from 'react';
+import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3, ClipboardCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Header from './Header';
 
-const NewTicket = () => {
+const NewTicket = (onLogout) => {
   const [formData, setFormData] = useState({
     ticketNo: '',
     date: '',
@@ -27,29 +30,37 @@ const NewTicket = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-64 bg-gray-200 min-h-screen">
-        <div className="p-4 bg-teal-400 text-white text-xl">
-          Helpdesk
+      <div className="w-64 bg-gray-200 ">
+        <div className="p-4 bg-teal-400 text-white ">
+        <h1 className="text-xl font-semibold">Helpdesk</h1>
         </div>
-        <nav className="p-4">
+        <nav className="p-4 space-y-2">
           <div className="space-y-2">
-            <a href="/dashboard" className="block px-4 py-2 text-gray-700 hover:bg-gray-300 rounded">
-              Dashboard
-            </a>
-            <a href="/new-ticket" className="block px-4 py-2 bg-gray-300 text-gray-700 rounded">
-              New Ticket
-            </a>
-            <a href="/my-tickets" className="block px-4 py-2 text-gray-700 hover:bg-gray-300 rounded">
-              My Ticket
-            </a>
+          <Link to="/dashboard" className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-300 rounded">
+            <HomeIcon className="w-5 h-5 mr-2" />
+            Dashboard
+          </Link>
+          <Link to="/new-ticket" className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-300 rounded">
+            <PlusCircleIcon className="w-5 h-5 mr-2" />
+            New Ticket
+          </Link>
+          <Link to="/my-tickets" className="flex items-center px-4 py-2 bg-gray-300 text-gray-700 rounded">
+            <FolderIcon className="w-5 h-5 mr-2" />
+            My Tickets
+          </Link>
+          <Link to="/performance" className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-300 rounded">
+            <BarChart3 className="w-5 h-5 mr-2" />
+            Performance
+          </Link>
           </div>
         </nav>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 p-8">
+      <Header onLogout={onLogout} />
         <h2 className="text-2xl font-semibold mb-6">Create New Ticket</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
