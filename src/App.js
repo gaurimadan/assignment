@@ -10,7 +10,6 @@ import SignPage from './components/SignUp';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check for existing auth state on app load
   useEffect(() => {
     const authState = localStorage.getItem('isAuthenticated');
     if (authState === 'true') {

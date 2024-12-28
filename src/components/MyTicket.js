@@ -3,7 +3,7 @@ import { HomeIcon, PlusCircleIcon, FolderIcon, Star, Search ,BarChart3} from 'lu
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
-const MyTickets = (onLogout) => {
+const MyTickets = ({onLogout}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [entriesCount, setEntriesCount] = useState('10');
 

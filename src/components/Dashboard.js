@@ -1,8 +1,8 @@
-import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3, ClipboardCheck } from 'lucide-react';
+import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
-const Dashboard = (onLogout) => {
+const Dashboard = ({onLogout}) => {
   const tickets = {
     total: 12,
     solved: 8,

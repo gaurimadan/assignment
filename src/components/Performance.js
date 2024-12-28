@@ -1,9 +1,9 @@
-import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3, ClipboardCheck } from 'lucide-react';
+import { HomeIcon,  FolderIcon, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 import Header from './Header';
 
-const Performance = (onLogout) => {
+const Performance = ({onLogout}) => {
   const operationData = {
     contactNo: '0123456789',
     department: 'ABC',
