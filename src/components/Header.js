@@ -1,4 +1,3 @@
-// src/components/Header.js
 import { Bell, Moon, User, LogOutIcon } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 

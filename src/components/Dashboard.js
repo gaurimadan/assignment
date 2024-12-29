@@ -12,7 +12,7 @@ const Dashboard = ({onLogout}) => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
+     
       <div className="w-64 bg-gray-200">
         <div className="p-4 bg-teal-400 text-white">
           <h1 className="text-xl font-semibold">Helpdesk</h1>
@@ -37,11 +37,11 @@ const Dashboard = ({onLogout}) => {
         </nav>
       </div>
 
-      {/* Main Content */}
+     
       <div className="flex-1 bg-white">
        <Header onLogout={onLogout} />
         <div className="p-4 bg-teal-400 flex justify-end space-x-4">
-          {/* Header icons placeholder */}
+         
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>

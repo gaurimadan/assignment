@@ -6,6 +6,7 @@ import MyTickets from './components/MyTicket';
 import Performance from './components/Performance';
 import LoginPage from './components/LoginPage';
 import SignPage from './components/SignUp';
+import ForgotPassword from './components/ForgotPassword';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,6 +50,16 @@ const App = () => {
           element={
             !isAuthenticated ? (
               <SignPage onSignUp={handleSignin} />
+            ) : (
+              <Navigate to="/dashboard" replace />
+            )
+          } 
+        />
+         <Route 
+          path="/forgot-password" 
+          element={
+            !isAuthenticated ? (
+              <ForgotPassword />
             ) : (
               <Navigate to="/dashboard" replace />
             )

@@ -78,7 +78,7 @@ const MyTickets = ({onLogout}) => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
+    
       <div className="w-64 bg-gray-200">
         <div className="p-4 bg-teal-400 text-white">
           <h1 className="text-xl font-semibold">Helpdesk</h1>
@@ -103,11 +103,11 @@ const MyTickets = ({onLogout}) => {
         </nav>
       </div>
 
-      {/* Main Content */}
+      
       <div className="flex-1 bg-white">
       <Header onLogout={onLogout} />
         <div className="p-4 bg-teal-400 flex justify-end space-x-4">
-          {/* Header icons placeholder */}
+        
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>
@@ -116,7 +116,7 @@ const MyTickets = ({onLogout}) => {
         <div className="p-8">
           <h2 className="text-2xl font-semibold mb-6">List of Ticket</h2>
           
-          {/* Search and Entries Section */}
+         
           <div className="flex justify-between mb-4">
             <div className="relative">
               <input
@@ -143,7 +143,7 @@ const MyTickets = ({onLogout}) => {
             </div>
           </div>
 
-          {/* Tickets Table */}
+          
           <div className="overflow-x-auto">
             <table className="min-w-full bg-white">
               <thead>
@@ -177,7 +177,7 @@ const MyTickets = ({onLogout}) => {
             </table>
           </div>
 
-          {/* Pagination */}
+          
           <div className="flex items-center justify-between mt-4">
             <div className="text-sm text-gray-600">
               Showing 1 to 5 of 5 entries

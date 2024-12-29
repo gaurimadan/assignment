@@ -36,7 +36,7 @@ const Performance = ({onLogout}) => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
+     
       <div className="w-64 bg-gray-200">
         <div className="p-4 bg-teal-400 text-white">
           <h1 className="text-xl font-semibold">Helpdesk</h1>
@@ -58,11 +58,11 @@ const Performance = ({onLogout}) => {
         </nav>
       </div>
 
-      {/* Main Content */}
+      
       <div className="flex-1 bg-white">
       <Header onLogout={onLogout} />
         <div className="p-4 bg-teal-400 flex justify-end space-x-4">
-          {/* Header icons placeholder */}
+          
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>
           <div className="w-6 h-6 bg-white/20 rounded"></div>
@@ -72,10 +72,10 @@ const Performance = ({onLogout}) => {
           <h2 className="text-2xl font-semibold mb-6">Performance</h2>
 
           <div className="space-y-6">
-            {/* Operation Info Card */}
+            
             <div className="bg-gray-100 p-6 rounded-lg">
               <div className="flex items-start gap-6">
-                {/* Profile Section */}
+                
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-gray-300 rounded-full"></div>
                   <div>
@@ -85,7 +85,7 @@ const Performance = ({onLogout}) => {
                   </div>
                 </div>
 
-                {/* Stats Section */}
+               
                 <div className="flex-1 ml-8">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
@@ -113,7 +113,7 @@ const Performance = ({onLogout}) => {
               </div>
             </div>
 
-            {/* Operation List */}
+            
             <div className="space-y-4">
               {operationData.operations.map((operation) => (
                 <div key={operation.id} className="flex items-center justify-between bg-gray-100 p-4 rounded-lg">

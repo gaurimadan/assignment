@@ -1,4 +1,3 @@
-// src/components/LoginPage.js
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -48,7 +47,7 @@ const SignPage = ({ onSignUp }) => {
           </div>
         </form>
         <div className="mt-4 text-center space-x-4">
-          <a href="#" className="text-red-500 text-sm">Forgot password?</a>
+          <Link to="/forgot-password" className="text-red-500 text-sm">Forgot password?</Link>
           <Link to="/" className="text-blue-500 text-sm">Sign In</Link>
         </div>
       </div>

@@ -1,4 +1,3 @@
-// src/components/NewTicket.js
 import { useState } from 'react';
 import { HomeIcon, PlusCircleIcon, FolderIcon, BarChart3} from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -31,7 +30,6 @@ const NewTicket = ({onLogout}) => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
       <div className="w-64 bg-gray-200 ">
         <div className="p-4 bg-teal-400 text-white ">
         <h1 className="text-xl font-semibold">Helpdesk</h1>
@@ -58,7 +56,7 @@ const NewTicket = ({onLogout}) => {
         </nav>
       </div>
 
-      {/* Main Content */}
+      
       <div className="flex-1 p-8">
       <Header onLogout={onLogout} />
         <h2 className="text-2xl font-semibold mb-6">Create New Ticket</h2>
@@ -178,7 +176,7 @@ const NewTicket = ({onLogout}) => {
             />
           </div>
 
-          {/* Placeholder for reCAPTCHA */}
+          
           <div className="my-4">
             <div className="bg-gray-200 p-4 w-72 rounded">reCAPTCHA</div>
           </div>
