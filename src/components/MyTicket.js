@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { HomeIcon, PlusCircleIcon, FolderIcon, Star, Search ,BarChart3} from 'lucide-react';
+import { HomeIcon, PlusCircleIcon, FolderIcon, Star, Search, BarChart3, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
 const MyTickets = ({onLogout}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [entriesCount, setEntriesCount] = useState('10');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const tickets = [
     {
@@ -69,17 +70,29 @@ const MyTickets = ({onLogout}) => {
         {[1, 2, 3, 4, 5].map((star) => (
           <Star
             key={star}
-            className={`w-4 h-4 ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+            className={`w-3 h-3 md:w-4 md:h-4 ${star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
           />
         ))}
       </div>
     );
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
-    <div className="min-h-screen flex">
-    
-      <div className="w-64 bg-gray-200">
+    <div className="min-h-screen flex flex-col md:flex-row">
+     
+      <button 
+        className="md:hidden fixed top-4 left-4 z-20 p-2 bg-teal-400 text-white rounded-md"
+        onClick={toggleSidebar}
+      >
+        <Menu className="w-6 h-6" />
+      </button>
+      
+      
+      <div className={`w-64 bg-gray-200 fixed inset-y-0 left-0 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition duration-200 ease-in-out z-10`}>
         <div className="p-4 bg-teal-400 text-white">
           <h1 className="text-xl font-semibold">Helpdesk</h1>
         </div>
@@ -103,26 +116,20 @@ const MyTickets = ({onLogout}) => {
         </nav>
       </div>
 
-      
+     
       <div className="flex-1 bg-white">
-      <Header onLogout={onLogout} />
-        <div className="p-4 bg-teal-400 flex justify-end space-x-4">
-        
-          <div className="w-6 h-6 bg-white/20 rounded"></div>
-          <div className="w-6 h-6 bg-white/20 rounded"></div>
-          <div className="w-6 h-6 bg-white/20 rounded"></div>
-        </div>
+        <Header onLogout={onLogout} />
 
-        <div className="p-8">
-          <h2 className="text-2xl font-semibold mb-6">List of Ticket</h2>
+        <div className="p-4 md:p-8">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">List of Ticket</h2>
           
-         
-          <div className="flex justify-between mb-4">
+          
+          <div className="flex flex-col md:flex-row justify-between mb-4 space-y-4 md:space-y-0">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Find ticket"
-                className="pl-10 pr-4 py-2 border rounded-md bg-gray-100"
+                className="w-full md:w-auto pl-10 pr-4 py-2 border rounded-md bg-gray-100"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -148,27 +155,27 @@ const MyTickets = ({onLogout}) => {
             <table className="min-w-full bg-white">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Ticket No.</th>
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Subject</th>
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Status</th>
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Support by</th>
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Date</th>
-                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-600">Rate</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Ticket No.</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Subject</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Status</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Support by</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Date</th>
+                  <th className="px-4 py-2 md:px-6 md:py-3 text-left text-xs md:text-sm font-medium text-gray-600">Rate</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {tickets.map((ticket) => (
                   <tr key={ticket.ticketNo} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm text-blue-600">{ticket.ticketNo}</td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{ticket.subject}</td>
-                    <td className="px-6 py-4">
-                      <span className={`px-3 py-1 rounded-full text-white text-sm ${getStatusColor(ticket.status)}`}>
+                    <td className="px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm text-blue-600">{ticket.ticketNo}</td>
+                    <td className="px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm text-gray-900">{ticket.subject}</td>
+                    <td className="px-4 py-2 md:px-6 md:py-4">
+                      <span className={`px-2 py-1 rounded-full text-white text-xs md:text-sm ${getStatusColor(ticket.status)}`}>
                         {ticket.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{ticket.supportBy}</td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{ticket.date}</td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm text-gray-900">{ticket.supportBy}</td>
+                    <td className="px-4 py-2 md:px-6 md:py-4 text-xs md:text-sm text-gray-900">{ticket.date}</td>
+                    <td className="px-4 py-2 md:px-6 md:py-4">
                       <StarRating rating={ticket.rating} />
                     </td>
                   </tr>
@@ -178,8 +185,8 @@ const MyTickets = ({onLogout}) => {
           </div>
 
           
-          <div className="flex items-center justify-between mt-4">
-            <div className="text-sm text-gray-600">
+          <div className="flex flex-col md:flex-row items-center justify-between mt-4 space-y-4 md:space-y-0">
+            <div className="text-xs md:text-sm text-gray-600">
               Showing 1 to 5 of 5 entries
             </div>
             <div className="flex gap-2">
